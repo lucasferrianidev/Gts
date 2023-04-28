@@ -1,13 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Gst.Models;
+namespace Gst.Data.Dtos;
 
-public class Profissional
+public class CreateProfissionalDto
 {
-    [Key]
-    [Required]
-    public int CdProfissional { get; set; }
-
     [Required(ErrorMessage = "O nome é obrigatório")]
     public string Nome { get; set; }
 
