@@ -52,5 +52,6 @@ public class EnderecoMap : IEntityTypeConfiguration<Endereco>
             .IsRequired()
             .HasColumnName("UF")
             .HasColumnType("varchar(2)");
+
     }
 }
