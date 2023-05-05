@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Gst.Data.Dtos;
+namespace Gst.Data.Dtos.Profissional;
 
-public class CreateProfissionalDto
+public class UpdateProfissionalDto
 {
     [Required(ErrorMessage = "O nome é obrigatório")]
     public string Nome { get; set; }

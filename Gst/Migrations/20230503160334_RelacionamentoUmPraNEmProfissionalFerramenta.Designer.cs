@@ -3,6 +3,7 @@ using System;
 using Gst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gst.Migrations
 {
     [DbContext(typeof(GstContext))]
-    partial class GstContextModelSnapshot : ModelSnapshot
+    [Migration("20230503160334_RelacionamentoUmPraNEmProfissionalFerramenta")]
+    partial class RelacionamentoUmPraNEmProfissionalFerramenta
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,10 +79,6 @@ namespace Gst.Migrations
                         .HasColumnType("int")
                         .HasColumnName("CDFERRAMENTA");
 
-                    b.Property<int>("CdProfissional")
-                        .HasColumnType("int")
-                        .HasColumnName("CDPROFISSIONAL");
-
                     b.Property<string>("Marca")
                         .IsRequired()
                         .HasColumnType("varchar(100)")
@@ -92,8 +91,6 @@ namespace Gst.Migrations
 
                     b.HasKey("CdFerramenta")
                         .HasName("Ferramenta__cdFerramenta_PK");
-
-                    b.HasIndex("CdProfissional");
 
                     b.ToTable("FERRAMENTA_TB", (string)null);
                 });
@@ -140,10 +137,10 @@ namespace Gst.Migrations
                 {
                     b.HasOne("Gst.Models.Profissional", "Profissional")
                         .WithMany("Ferramentas")
-                        .HasForeignKey("CdProfissional")
+                        .HasForeignKey("CdFerramenta")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FerramentaXProfissional__cdProfissional_FK");
+                        .HasConstraintName("FerramentaXProfissional__cdFerramenta_FK");
 
                     b.Navigation("Profissional");
                 });

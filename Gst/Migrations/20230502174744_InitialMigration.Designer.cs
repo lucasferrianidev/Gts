@@ -3,6 +3,7 @@ using System;
 using Gst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,16 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gst.Migrations
 {
     [DbContext(typeof(GstContext))]
-    partial class GstContextModelSnapshot : ModelSnapshot
+    [Migration("20230502174744_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.5")
-                .HasAnnotation("Proxies:ChangeTracking", false)
-                .HasAnnotation("Proxies:CheckEquality", false)
-                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Gst.Models.Endereco", b =>
@@ -76,10 +76,6 @@ namespace Gst.Migrations
                         .HasColumnType("int")
                         .HasColumnName("CDFERRAMENTA");
 
-                    b.Property<int>("CdProfissional")
-                        .HasColumnType("int")
-                        .HasColumnName("CDPROFISSIONAL");
-
                     b.Property<string>("Marca")
                         .IsRequired()
                         .HasColumnType("varchar(100)")
@@ -92,8 +88,6 @@ namespace Gst.Migrations
 
                     b.HasKey("CdFerramenta")
                         .HasName("Ferramenta__cdFerramenta_PK");
-
-                    b.HasIndex("CdProfissional");
 
                     b.ToTable("FERRAMENTA_TB", (string)null);
                 });
@@ -136,18 +130,6 @@ namespace Gst.Migrations
                     b.ToTable("PROFISSIONAL_TB", (string)null);
                 });
 
-            modelBuilder.Entity("Gst.Models.Ferramenta", b =>
-                {
-                    b.HasOne("Gst.Models.Profissional", "Profissional")
-                        .WithMany("Ferramentas")
-                        .HasForeignKey("CdProfissional")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FerramentaXProfissional__cdProfissional_FK");
-
-                    b.Navigation("Profissional");
-                });
-
             modelBuilder.Entity("Gst.Models.Profissional", b =>
                 {
                     b.HasOne("Gst.Models.Endereco", "Endereco")
@@ -164,11 +146,6 @@ namespace Gst.Migrations
                 {
                     b.Navigation("Profissional")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Gst.Models.Profissional", b =>
-                {
-                    b.Navigation("Ferramentas");
                 });
 #pragma warning restore 612, 618
         }

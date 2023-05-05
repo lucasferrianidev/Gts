@@ -1,0 +1,15 @@
+## 1. Create a migration
+
+dotnet ef migrations add NomeDaMigracaoNova
+
+## 2. Update database with migrations
+
+dotnet ef database update
+
+## 3. Apply rollback until the migration specified
+
+dotnet ef database update NomeDaMigrationSemOsNumeros
+
+## 4. Generate migration scripts
+
+dotnet ef script --output Migrations\MySQL\Scripts\NomeDoScript.sql 0 NomeDaMigration
