@@ -2,4 +2,5 @@
 
 public class UpdateEspecialidadeDto
 {
+    public string Nome { get; set; }
 }

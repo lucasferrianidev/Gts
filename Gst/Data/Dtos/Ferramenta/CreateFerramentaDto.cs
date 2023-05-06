@@ -2,7 +2,7 @@
 
 public class CreateFerramentaDto
 {
+    public int CdProfissional { get; set; }
     public string Nome { get; set; }
     public string Marca { get; set; }
-    public int CdProfissional { get; set; }
 }

@@ -8,8 +8,8 @@ public class EnderecoProfile : Profile
 {
     public EnderecoProfile()
     {
-        CreateMap<CreateEnderecoDto, Especialidade>();
-        CreateMap<UpdateEnderecoDto, Especialidade>();
-        CreateMap<Especialidade, ReadEnderecoDto>();
+        CreateMap<CreateEnderecoDto, Endereco>();
+        CreateMap<UpdateEnderecoDto, Endereco>();
+        CreateMap<Endereco, ReadEnderecoDto>();
     }
 }

@@ -2,4 +2,5 @@
 
 public class ReadEspecialidadeDto
 {
+    public string Nome { get; set; }
 }

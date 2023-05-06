@@ -8,12 +8,12 @@ namespace Gst.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class EspecilidadeController : ControllerBase
+public class EspecialidadeController : ControllerBase
 {
     private GstContext _context { get; set; }
     private IMapper _mapper { get; set; }
 
-    public EspecilidadeController(GstContext context, IMapper mapper)
+    public EspecialidadeController(GstContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
@@ -27,46 +27,46 @@ public class EspecilidadeController : ControllerBase
     /// <response code="201">Caso inserção seja feita com sucesso</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public IActionResult AdicionarEspecilidade([FromBody] CreateEspecialidadeDto especilidadeDto)
+    public IActionResult AdicionarEspecialidade([FromBody] CreateEspecialidadeDto especilidadeDto)
     {
         Especialidade especilidade = _mapper.Map<Especialidade>(especilidadeDto); 
         _context.Especialidades.Add(especilidade);
         _context.SaveChanges();
         return CreatedAtAction(
-            nameof(RecuperarEspecilidadePorId), 
-            new { cdEspecilidade = especilidade.CdEspecialidade }, 
+            nameof(RecuperarEspecialidadePorId), 
+            new { cdEspecialidade = especilidade.CdEspecialidade }, 
             especilidade);
     }
 
     [HttpGet]
-    public IEnumerable<ReadEspecialidadeDto> RecuperarEspecilidades([FromQuery] int skip = 0, [FromQuery] int take = 10)
+    public IEnumerable<ReadEspecialidadeDto> RecuperarEspecialidades([FromQuery] int skip = 0, [FromQuery] int take = 10)
     {
-        return _mapper.Map<List<ReadEspecialidadeDto>>(_context.Especialidades.Skip(skip).Take(take));
+        return _mapper.Map<List<ReadEspecialidadeDto>>(_context.Especialidades.Skip(skip).Take(take).ToList());
     }
 
-    [HttpGet("{cdEspecilidade}")]
-    public IActionResult RecuperarEspecilidadePorId(int cdEspecilidade)
+    [HttpGet("{cdEspecialidade}")]
+    public IActionResult RecuperarEspecialidadePorId(int cdEspecialidade)
     {
-        var especilidade = _context.Especialidades.FirstOrDefault(especilidade => especilidade.CdEspecialidade == cdEspecilidade);
+        var especilidade = _context.Especialidades.FirstOrDefault(especilidade => especilidade.CdEspecialidade == cdEspecialidade);
         if (especilidade == null) return NotFound();
         var especilidadeDto = _mapper.Map<ReadEspecialidadeDto>(especilidade);
         return Ok(especilidadeDto);
     }
 
-    [HttpPut("{cdEspecilidade}")]
-    public IActionResult AlterarEspecilidade(int cdEspecilidade, [FromBody] UpdateEspecialidadeDto especilidadeDto)
+    [HttpPut("{cdEspecialidade}")]
+    public IActionResult AlterarEspecialidade(int cdEspecialidade, [FromBody] UpdateEspecialidadeDto especilidadeDto)
     {
-        var especilidade = _context.Especialidades.FirstOrDefault(prof => prof.CdEspecialidade == cdEspecilidade);
+        var especilidade = _context.Especialidades.FirstOrDefault(prof => prof.CdEspecialidade == cdEspecialidade);
         if (especilidade == null) return NotFound();
         _mapper.Map(especilidadeDto, especilidade);
         _context.SaveChanges();
         return NoContent();
     }
 
-    [HttpDelete("{cdEspecilidade}")]
-    public IActionResult DeletarEspecilidade(int cdEspecilidade)
+    [HttpDelete("{cdEspecialidade}")]
+    public IActionResult DeletarEspecialidade(int cdEspecialidade)
     {
-        var especilidade = _context.Especialidades.FirstOrDefault(prof => prof.CdEspecialidade == cdEspecilidade);
+        var especilidade = _context.Especialidades.FirstOrDefault(prof => prof.CdEspecialidade == cdEspecialidade);
         if (especilidade == null) return NotFound();
 
         _context.Remove(especilidade);

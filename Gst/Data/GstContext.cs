@@ -15,6 +15,7 @@ public class GstContext : DbContext
     public DbSet<Ferramenta> Ferramentas { get; set; }
     public DbSet<Endereco> Enderecos { get; set; }
     public DbSet<Especialidade> Especialidades { get; set; }
+    public DbSet<ProfissionalEspecialidade> ProfissionaisEspecialidades { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -29,5 +30,6 @@ public class GstContext : DbContext
         modelBuilder.ApplyConfiguration(new ProfissionalMap());
         modelBuilder.ApplyConfiguration(new FerramentaMap());
         modelBuilder.ApplyConfiguration(new EspecialidadeMap());
+        modelBuilder.ApplyConfiguration(new ProfissionalEspecialidadeMap());
     }
 }
