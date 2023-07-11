@@ -15,5 +15,6 @@ public class ReadProfissionalDto
     public DateTime HoraDaConsulta { get; set; } = DateTime.Now;
     public virtual ReadEnderecoDto Endereco { get; set; }
     public virtual ICollection<ReadFerramentaDto> Ferramentas { get; set; }
+    public virtual ICollection<ReadProfissionalEspecialidadeDto> ProfissionaisEspecialidades { get; set; }
 
 }

@@ -12,10 +12,10 @@ namespace Gst.Controllers;
 [Route("[controller]")]
 public class ProfissionalController : ControllerBase
 {
-    private GstContext _context { get; set; }
+    private GstDbContext _context { get; set; }
     private IMapper _mapper { get; set; }
 
-    public ProfissionalController(GstContext context, IMapper mapper)
+    public ProfissionalController(GstDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

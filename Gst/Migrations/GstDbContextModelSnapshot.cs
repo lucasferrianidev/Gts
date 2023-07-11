@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gst.Migrations
 {
-    [DbContext(typeof(GstContext))]
-    partial class GstContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(GstDbContext))]
+    partial class GstDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -196,7 +196,7 @@ namespace Gst.Migrations
                     b.HasOne("Gst.Models.Endereco", "Endereco")
                         .WithOne("Profissional")
                         .HasForeignKey("Gst.Models.Profissional", "CdEndereco")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("EnderecoXProfissional__cdEndereco_FK");
 
@@ -206,13 +206,13 @@ namespace Gst.Migrations
             modelBuilder.Entity("Gst.Models.ProfissionalEspecialidade", b =>
                 {
                     b.HasOne("Gst.Models.Especialidade", "Especialidade")
-                        .WithMany()
+                        .WithMany("ProfissionaisEspecialidades")
                         .HasForeignKey("CdEspecialidade")
                         .IsRequired()
                         .HasConstraintName("Especialidade__cdEspecialidade_FK");
 
                     b.HasOne("Gst.Models.Profissional", "Profissional")
-                        .WithMany()
+                        .WithMany("ProfissionaisEspecialidades")
                         .HasForeignKey("CdProfissional")
                         .IsRequired()
                         .HasConstraintName("Profissional__cdProfisional_FK");
@@ -228,9 +228,16 @@ namespace Gst.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Gst.Models.Especialidade", b =>
+                {
+                    b.Navigation("ProfissionaisEspecialidades");
+                });
+
             modelBuilder.Entity("Gst.Models.Profissional", b =>
                 {
                     b.Navigation("Ferramentas");
+
+                    b.Navigation("ProfissionaisEspecialidades");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
 using Gst.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -7,9 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("GstConnection");
 
-builder.Services.AddDbContext<GstContext>(opts => opts
+builder.Services.AddDbContext<GstDbContext>(opts => opts
     .UseLazyLoadingProxies()
     .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+//builder.Services.AddDbContext<UsuarioDbContext>(opts => opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+//builder.Services
+//    .AddIdentity<UsuarioDbContext, IdentityRole>()
+//    .AddEntityFrameworkStores<UsuarioDbContext>()
+//    .AddDefaultTokenProviders();
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

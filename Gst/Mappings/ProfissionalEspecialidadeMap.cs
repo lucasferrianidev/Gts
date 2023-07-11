@@ -28,13 +28,13 @@ public class ProfissionalEspecialidadeMap : IEntityTypeConfiguration<Profissiona
             .HasColumnType("int");
 
         builder.HasOne(d => d.Especialidade)
-            .WithMany()
+            .WithMany(e => e.ProfissionaisEspecialidades)
             .HasForeignKey(d => d.CdEspecialidade)
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("Especialidade__cdEspecialidade_FK");
 
         builder.HasOne(d => d.Profissional)
-            .WithMany()
+            .WithMany(e => e.ProfissionaisEspecialidades)
             .HasForeignKey(d => d.CdProfissional)
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("Profissional__cdProfisional_FK");

@@ -10,10 +10,10 @@ namespace Gst.Controllers;
 [Route("[controller]")]
 public class EnderecoController : ControllerBase
 {
-    private GstContext _context { get; set; }
+    private GstDbContext _context { get; set; }
     private IMapper _mapper { get; set; }
 
-    public EnderecoController(GstContext context, IMapper mapper)
+    public EnderecoController(GstDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

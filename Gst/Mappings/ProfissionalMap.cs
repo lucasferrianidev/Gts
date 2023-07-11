@@ -49,7 +49,8 @@ public class ProfissionalMap : IEntityTypeConfiguration<Profissional>
 
         builder.HasOne(e => e.Endereco)
             .WithOne(e => e.Profissional)
-            .HasForeignKey<Profissional>(e => e.CdEndereco) 
+            .HasForeignKey<Profissional>(e => e.CdEndereco)
+            .OnDelete(DeleteBehavior.Restrict)
             .HasConstraintName("EnderecoXProfissional__cdEndereco_FK");
 
         builder.HasMany(p => p.Ferramentas)

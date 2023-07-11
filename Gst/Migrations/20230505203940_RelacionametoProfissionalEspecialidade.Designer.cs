@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gst.Migrations
 {
-    [DbContext(typeof(GstContext))]
+    [DbContext(typeof(GstDbContext))]
     [Migration("20230505203940_RelacionametoProfissionalEspecialidade")]
     partial class RelacionametoProfissionalEspecialidade
     {

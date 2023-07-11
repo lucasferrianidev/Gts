@@ -10,4 +10,5 @@ public class Profissional
     public int CdEndereco { get; set; }
     public virtual Endereco Endereco { get; set; }
     public virtual ICollection<Ferramenta> Ferramentas { get; set; }
+    public virtual ICollection<ProfissionalEspecialidade> ProfissionaisEspecialidades { get; set; }
 }

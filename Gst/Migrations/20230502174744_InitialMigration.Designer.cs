@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gst.Migrations
 {
-    [DbContext(typeof(GstContext))]
+    [DbContext(typeof(GstDbContext))]
     [Migration("20230502174744_InitialMigration")]
     partial class InitialMigration
     {

@@ -1,12 +1,12 @@
-﻿using Gst.Mappings;
+﻿    using Gst.Mappings;
 using Gst.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gst.Data;
 
-public class GstContext : DbContext
+public class GstDbContext : DbContext
 {
-    public GstContext(DbContextOptions<GstContext> opts) : base(opts)
+    public GstDbContext(DbContextOptions<GstDbContext> opts) : base(opts)
     {
         
     }
