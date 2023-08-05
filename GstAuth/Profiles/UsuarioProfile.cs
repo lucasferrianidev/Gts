@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GstAuth.Data.Dtos.Usuario;
+using GstAuth.Data.Dtos;
 using GstAuth.Models;
 
 namespace GstAuth.Profiles;

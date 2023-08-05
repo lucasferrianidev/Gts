@@ -49,3 +49,11 @@ C:\Gst\GstApplication\GstAuth\obj\Debug\net7.0\refint\GstAuth.dll
 C:\Gst\GstApplication\GstAuth\obj\Debug\net7.0\GstAuth.pdb
 C:\Gst\GstApplication\GstAuth\obj\Debug\net7.0\GstAuth.genruntimeconfig.cache
 C:\Gst\GstApplication\GstAuth\obj\Debug\net7.0\ref\GstAuth.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

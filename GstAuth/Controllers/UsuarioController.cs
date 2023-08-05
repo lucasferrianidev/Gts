@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using GstAuth.Data.Dtos.Usuario;
+using GstAuth.Data.Dtos;
 using GstAuth.Models;
+using GstAuth.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,28 +11,24 @@ namespace GstAuth.Controllers;
 [Route("[controller]")]
 public class UsuarioController : ControllerBase
 {
-    private IMapper _mapper { get; set; }
+    private UsuarioService _usuarioService;
 
-    private UserManager<Usuario> _userManager;
-
-    public UsuarioController(IMapper mapper, UserManager<Usuario> userManager)
+    public UsuarioController(UsuarioService cadastroService)
     {
-        _mapper = mapper;
-        _userManager = userManager;
+        _usuarioService = cadastroService;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> CreateUsuario(CreateUsuarioDto dto)
+    [HttpPost("cadastro")]
+    public async Task<IActionResult> CreateUsuarioAsync(CreateUsuarioDto dto)
     {
-        var usuario = _mapper.Map<Usuario>(dto);
+        await _usuarioService.CadastraAsync(dto);
+        return Ok("Usuário cadastrado!");
+    }
 
-        var resultado = await _userManager.CreateAsync(usuario, dto.Password);
-
-        if (resultado.Succeeded)
-        {
-            return Ok(resultado);
-        }
-
-        throw new ApplicationException("Falha ao cadastrar usuário!");
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(LoginUsuarioDto dto)
+    {
+        var token = await _usuarioService.Login(dto);
+        return Ok(token);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace GstAuth.Data.Dtos.Usuario;
+﻿namespace GstAuth.Data.Dtos;
 
 public class CreateUsuarioDto
 {
