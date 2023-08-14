@@ -1,0 +1,11 @@
+<div *ngIf="listaEspecialidade.length > 0; else semEspecialidade">
+  <div *ngFor="let especialidade of listaEspecialidade">
+    Id: {{ especialidade.cdEspecialidade }}
+    Nome: {{ especialidade.nome }}
+  </div>
+</div>
+<ng-template #semEspecialidade>
+  <div>
+    Não há especialidades cadastradas
+  </div>
+</ng-template>
