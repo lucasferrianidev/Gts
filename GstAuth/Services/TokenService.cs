@@ -22,6 +22,7 @@ namespace GstAuth.Services
             {
                 new Claim("usuario", usuario.UserName),
                 new Claim("id", usuario.Id),
+                new Claim("role", usuario.Role),
                 new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString())
             };
 

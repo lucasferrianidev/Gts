@@ -6,6 +6,7 @@ namespace GstAuth.Models
     {
         public string CPF { get; set; }
         public DateTime DataNascimento { get; set; }
+        public string Role { get; set; }
 
         public Usuario() : base() { }
     }

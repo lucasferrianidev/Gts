@@ -7,4 +7,5 @@ public class CreateUsuarioDto
     public DateTime DataNascimento { get; set; }
     public string Password { get; set; }
     public string RePassword { get; set; }
+    public string Role { get; set; }
 }
