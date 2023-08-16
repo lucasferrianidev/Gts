@@ -2,6 +2,7 @@
   <div *ngFor="let especialidade of listaEspecialidade">
     Id: {{ especialidade.cdEspecialidade }}
     Nome: {{ especialidade.nome }}
+    <div routerLink="/especialidade/excluirEspecialidade/{{ especialidade.cdEspecialidade }}"><b>X</b></div>
   </div>
 </div>
 <ng-template #semEspecialidade>
@@ -9,3 +10,4 @@
     Não há especialidades cadastradas
   </div>
 </ng-template>
+<button (click)="criarEspecialidade1()">Adicionar nova especialidade</button>

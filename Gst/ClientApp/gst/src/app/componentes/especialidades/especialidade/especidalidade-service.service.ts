@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EspecialidadeService {
-
   private API = 'https://localhost:7164/Especialidade'
 
   constructor(private http: HttpClient) { }
@@ -15,6 +14,20 @@ export class EspecialidadeService {
 
   listarEspecialidade(): Observable<Especialidade[]> {
     return this.http.get<Especialidade[]>(this.API)
+  }
+
+  criarEspecialidade(especialidade: Especialidade): Observable<Especialidade> {
+    return this.http.post<Especialidade>(this.API, especialidade)
+  }
+
+  excluirEspecialidade(especialidade: Especialidade): Observable<Especialidade> {
+    const url = `${this.API}/${especialidade.cdEspecialidade}`
+    return this.http.delete<Especialidade>(url)
+  }
+
+  buscarEspecialidadePorId(id: number): Observable<Especialidade> {
+    const url = `${this.API}/${id}`
+    return this.http.get<Especialidade>(url)
   }
 
 }
