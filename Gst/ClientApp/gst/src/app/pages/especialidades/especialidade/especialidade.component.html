@@ -1,0 +1,26 @@
+<div
+  class="especialidade ff-roboto-mono"
+>
+  <p class="conteudo">{{ especialidade.nome }}</p>
+  <div class="acoes">
+    <div
+      class="botao-favorito"
+      (click)="mudarFavorito()"
+    >
+      <img src="/assets/imagens/icone-favorito-{{ mudarIcone() }}.jpeg" alt="Botão favorito {{ mudarIcone() }}">
+    </div>
+    <button class="botao-editar">
+      <img
+        src="/assets/imagens/icone-editar.png"
+        alt="Ícone de editar"
+        routerLink="/especialidade/editarEspecialidade/{{ especialidade.cdEspecialidade }}"
+      />
+    </button>
+    <button
+      class="botao-excluir"
+      routerLink="/especialidade/excluirEspecialidade/{{ especialidade.cdEspecialidade}}"
+    >
+      <img src="/assets/imagens/icone-excluir.png" alt="Ícone de excluir" />
+    </button>
+  </div>
+</div>

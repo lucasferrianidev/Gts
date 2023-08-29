@@ -20,7 +20,7 @@ namespace GstAuth.Services
             // 1º Passo preencher o token com as claims (reivindicações)
             Claim[] claims = new Claim[]
             {
-                new Claim("usuario", usuario.UserName),
+                new Claim("username", usuario.UserName),
                 new Claim("id", usuario.Id),
                 new Claim("role", usuario.Role),
                 new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString())

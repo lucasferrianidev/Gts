@@ -76,6 +76,11 @@ namespace Gst.Migrations
                         .HasColumnType("int")
                         .HasColumnName("CDESPECIALIDADE");
 
+                    b.Property<bool>("Favorito")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(false);
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("varchar(100)")

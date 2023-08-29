@@ -1,0 +1,23 @@
+<section class="container editar-especialidades ff-inter">
+  <header class="header">
+    <h2>
+      Edite uma Especialidade <br />
+    </h2>
+  </header>
+  <form>
+    <label for="especialidade">Especialidade</label>
+    <input
+      type="textarea"
+      class="input"
+      id="especialidade"
+      name="especialidade"
+      placeholder="Digite um especialidade"
+      [(ngModel)]="especialidade.nome"
+    />
+
+    <div class="acoes">
+      <button (click)="editarEspecialidade()" class="botao">Salvar</button>
+      <button (click)="cancelar()" class="botao">Cancelar</button>
+    </div>
+  </form>
+</section>

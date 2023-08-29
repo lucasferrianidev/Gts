@@ -1,0 +1,6 @@
+.vs/
+GstApplication/.vs
+bin/
+obj/
+Gst/obj/
+Debug/

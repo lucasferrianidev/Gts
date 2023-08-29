@@ -23,5 +23,7 @@ public class EspecialidadeMap : IEntityTypeConfiguration<Especialidade>
             .IsRequired()
             .HasColumnName("NOME")
             .HasColumnType("varchar(100)");
+
+        builder.Property(e => e.Favorito).HasDefaultValue(false);
     }
 }

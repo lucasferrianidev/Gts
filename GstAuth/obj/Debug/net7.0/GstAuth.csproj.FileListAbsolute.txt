@@ -57,3 +57,9 @@ C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.d
 C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
 C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\System.Web.Cors.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\System.Web.Http.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\System.Web.Http.Cors.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Gst\GstApplication\GstAuth\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

@@ -1,0 +1,24 @@
+<input
+  type="search"
+  placeholder="O que você procura?"
+  [(ngModel)]="filtro"
+  (keyup)="listarFiltrado()"
+  autofocus
+/>
+<button (click)="criarEspecialidade1()">Adicionar nova especialidade</button>
+<div *ngIf="listaEspecialidade.length > 0; else semEspecialidade">
+  <div *ngFor="let especialidade of listaEspecialidade">
+    <app-especialidade [especialidade]="especialidade"></app-especialidade>
+  </div>
+</div>
+<app-botao-carregar-mais
+  [haMaisEspecialidades]="haMaisEspecialidades"
+  (click)="carregarMais()"
+>
+
+</app-botao-carregar-mais>
+<ng-template #semEspecialidade>
+  <div>
+    Não há especialidades cadastradas
+  </div>
+</ng-template>

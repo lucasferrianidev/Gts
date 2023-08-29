@@ -1,0 +1,6 @@
+<div class="center" *ngIf="haMaisEspecialidades; else semMaisEspecialidades">
+  <button class="botao carregar-mais">Carregar mais...</button>
+</div>
+<ng-template #semMaisEspecialidades>
+  <p class="mensagem-center">Não há mais especialidades</p>
+</ng-template>

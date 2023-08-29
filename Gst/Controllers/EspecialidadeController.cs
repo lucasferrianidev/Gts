@@ -39,9 +39,19 @@ public class EspecialidadeController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<ReadEspecialidadeDto> RecuperarEspecialidades([FromQuery] int skip = 0, [FromQuery] int take = 10)
+    public IEnumerable<ReadEspecialidadeDto> RecuperarEspecialidades([FromQuery] int page = 0, [FromQuery] int perPage = 10, [FromQuery] string query = "")
     {
-        return _mapper.Map<List<ReadEspecialidadeDto>>(_context.Especialidades.Skip(skip).Take(take).ToList());
+        var especialidades = query == "" ? _context.Especialidades
+                .Skip(page * perPage)
+                .Take(perPage)
+                .ToList() :
+            _context.Especialidades
+                .Where(x => x.Nome.Contains(query))
+                .Skip(page * perPage)
+                .Take(perPage)
+                .ToList();
+
+        return _mapper.Map<List<ReadEspecialidadeDto>>(especialidades);
     }
 
     [HttpGet("{cdEspecialidade}")]
